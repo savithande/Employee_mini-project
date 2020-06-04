@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+      <% i=0%>
+                <table>
+                  <tr>
+                    <td></td>
+                    <td align="center">
+                      <div class="cont">
+                      <div class="font-bebas" style="font-size:30px;">
+                        <i class="fas fa-user-circle fa-3x"></i><br>
+                        USERS COUNT<br>
+                        <%= @count %>
+                      </div>
+                    </div>
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td colspan="3">
+                      <div class="font-bebas" style="color:white;">
+                        USERS
+                      </div>
+                    </td>
+                  </tr>
+                  <% @details.each do |detail|%>
+                      <% user = User.find(detail.user_id) %>
+                      <% if user.role != 'admin' %>
+                      <% if i%3==0%>
+                        <tr>
+                          <td align="center">
+                            <a href="<%= user_path(user)%>" style="text-decoration:none;">
+                              <div class="card">
+                                <% if detail.gender=='Male'%>
+                                  <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="width:100%">
+                                <%else%>
+                                  <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" style="width:100%">
+                                <% end%>
+                                <div class="container-card">
+                                  <h4 class="font-bebas" style="color:black; text-align:left;"><b><%= detail.fname%><br></b></h4>
+                                  <p class="font-beba-small" style="color:grey; text-align:right;"><%= user.email%></p>
+                                </div>
+                              </div>
+                            </a>
+
+                          </td>
+                      <% elsif i%3==1%>
+                          <td align="center">
+                            <a href="<%= user_path(user)%>" style="text-decoration:none;">
+                              <div class="card">
+                                <% if detail.gender=='Male'%>
+                                  <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="width:100%">
+                                <%else%>
+                                  <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" style="width:100%">
+                                <% end%>
+                                <div class="container-card">
+                                  <h4 class="font-bebas" style="color:black; text-align:left;"><b><%= detail.fname%><br></b></h4>
+                                  <p class="font-beba-small" style="color:grey; text-align:right;"><%= user.email%></p>
+                                </div>
+                              </div>
+                            </a>
+
+                          </td>
+                      <% else%>
+                          <td align="center">
+                            <a href="<%= user_path(user)%>" style="text-decoration:none;">
+                              <div class="card">
+                                <% if detail.gender=='Male'%>
+                                  <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" style="width:100%">
+                                <%else%>
+                                  <img src="https://www.w3schools.com/howto/img_avatar2.png" alt="Avatar" style="width:100%">
+                                <% end%>
+                                <div class="container-card">
+                                  <h4 class="font-bebas" style="color:black; text-align:left;"><b><%= detail.fname%><br></b></h4>
+                                  <p class="font-beba-small" style="color:grey; text-align:right;"><%= user.email%></p>
+                                </div>
+                              </div>
+                            </a>
+
+                          </td>
+                        </tr>
+                      <% end%>
+                      <% i+=1%>
+                  <% end%>
+                  <% end %>
+                </table>
+    </div>
+    <% @users.each do |user|%>
+        <pre>
+
+        </pre>
+    <% end%>
+  </body>
+</html>

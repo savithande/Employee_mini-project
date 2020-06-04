@@ -1,0 +1,28 @@
+<%= form_for @account do |f|%>
+<table class="table table-striped table-dark">
+  <tr>
+    <td class="" style="vertical-align:middle; color:grey;"><label>Login Details</label></td>
+    <td class="" style="vertical-align:middle; color:grey;"><label>Personal Details</label></td>
+    <td class="" style="vertical-align:middle; color:grey;"><label>Additional Details</label></td>
+    <td class="active-tab" style="vertical-align:middle;"><label>Account Details</label></td>
+  </tr>
+        <tr>
+          <td><%= f.label "Account Number"%><font> *</font></td>
+          <td><%= f.text_field :accno, :required => true%><span style="color:white;"><%= @account.errors[:accno][0] rescue nil%></span></td>
+          <td><%= f.label "Name as in Account"%></td>
+          <td><%= f.text_field :accname%><span style="color:white;"><%= @account.errors[:accname][0] rescue nil%></span></td>
+        </tr>
+        <tr>
+          <td><%= f.label "IFSC Code"%><font> *</font></td>
+          <td><%= f.text_field :ifsc, :required => true%><span style="color:white;"><%= @account.errors[:ifsc][0] rescue nil%></span></td>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td><%= f.submit "Submit"%></td>
+          <td colspan="3"><span><%= @error %></span></td>
+        </tr>
+
+</table>
+<pre>
+</pre>
+<% end%>
